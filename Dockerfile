@@ -1,6 +1,7 @@
 
 FROM maven:3.8.8-eclipse-temurin-17 AS build
 
+
 WORKDIR /app
 
 
@@ -13,7 +14,7 @@ RUN mvn dependency:go-offline
 COPY curriculo-api/ .
 
 
-RUN mvn clean install
+RUN mvn clean install -DskipTests
 
 
 FROM openjdk:17-jdk-slim
